@@ -1,0 +1,38 @@
+// レビューのデータ
+    // Review data.
+const reviews = [
+    { reviewId: 1, rating: 5, comment: 'Excellent!' },
+    { reviewId: 2, rating: 4, comment: 'Very good' },
+    { reviewId: 3, rating: 3, comment: 'It’s okay' },
+    { reviewId: 4, rating: 2, comment: 'Not good' },
+    { reviewId: 5, rating: 1, comment: 'Terrible' }
+];
+
+// 評価の合計と有効なレビュー数を初期化
+    // Initialize sum and count.
+let sumOfRatings = 0;
+let count = 0;
+
+// reviewsを繰り返し処理し、評価3以上のレビューを集める
+    // Loop through reviews and collect those with rating >= 3.
+for (let i = 0; i < reviews.length; i++) {
+    if (reviews[i].rating >= 3) {
+        sumOfRatings += reviews[i].rating;
+        // 評価3以上のレビュー数をカウント
+        // Counts reviews with a rating of 3 or higher.
+        count++;
+    }
+}
+
+// 評価3以上のレビューが1つ以上あれば平均値を計算
+    // If there are reviews with rating >= 3, calculate the average.
+if(count > 0){
+    let averageRating = sumOfRatings / count;
+    // 平均評価を表示
+        // Show average rating.
+    console.log('Average Rating:', averageRating);
+} else {
+    // 評価3以上のレビューが無い場合、エラーメッセージを表示
+        // If no reviews have rating >= 3, show an error.
+    console.log('エラー：評価3以上のレビューが0件のため平均値を計算できませんでした。');
+}
